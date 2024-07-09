@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.ExamDao">
+  <resultMap id="BaseResultMap" type="cn.com.exam.entity.Exam">
+    <id column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+    <result column="topic_num" jdbcType="INTEGER" property="topicNum" />
+    <result column="total_score" jdbcType="FLOAT" property="totalScore" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+    <result column="permit_copy" jdbcType="INTEGER" property="permitCopy" />
+    <result column="switch_page" jdbcType="INTEGER" property="switchPage" />
+    <result column="disrupt_order" jdbcType="INTEGER" property="disruptOrder" />
+    <result column="repeat_test" jdbcType="INTEGER" property="repeatTest" />
+    <result column="auto_mack" jdbcType="INTEGER" property="autoMack" />
+  </resultMap>
+
+  <resultMap id="ExamTopicTchDTO" type="cn.com.exam.DTO.ExamTopicTchDTO">
+    <id column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="topic_num" jdbcType="INTEGER" property="topicNum" />
+    <result column="total_score" jdbcType="FLOAT" property="totalScore" />
+    <result column="subject_id" jdbcType="FLOAT" property="subjectId" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+    <result column="permit_copy" jdbcType="INTEGER" property="permitCopy" />
+    <result column="switch_page" jdbcType="INTEGER" property="switchPage" />
+    <result column="disrupt_order" jdbcType="INTEGER" property="disruptOrder" />
+    <result column="repeat_test" jdbcType="INTEGER" property="repeatTest" />
+    <result column="auto_mack" jdbcType="INTEGER" property="autoMack" />
+    <collection property="topicTchDTOList" ofType="cn.com.exam.DTO.TopicTchDTO">
+      <id column="topic_id" jdbcType="INTEGER" property="topicId" />
+      <result column="question" jdbcType="VARCHAR" property="question" />
+      <result column="choice" jdbcType="VARCHAR" property="choice" />
+      <result column="photo" jdbcType="VARCHAR" property="photo" />
+      <result column="topic_type" jdbcType="INTEGER" property="topicType" />
+      <result column="correct_answer" jdbcType="VARCHAR" property="correctAnswer" />
+      <result column="score" jdbcType="FLOAT" property="score" />
+      <result column="difficulty" jdbcType="VARCHAR" property="difficulty" />
+      <result column="analysis" jdbcType="VARCHAR" property="analysis" />
+      <result column="required" jdbcType="INTEGER" property="required" />
+    </collection>
+  </resultMap>
+
+  <resultMap id="ExamTopicStuDTO" type="cn.com.exam.DTO.ExamTopicStuDTO">
+    <id column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+    <result column="topic_num" jdbcType="INTEGER" property="topicNum" />
+    <result column="total_score" jdbcType="FLOAT" property="totalScore" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+    <result column="permit_copy" jdbcType="INTEGER" property="permitCopy" />
+    <result column="switch_page" jdbcType="INTEGER" property="switchPage" />
+    <result column="disrupt_order" jdbcType="INTEGER" property="disruptOrder" />
+    <result column="repeat_test" jdbcType="INTEGER" property="repeatTest" />
+    <result column="auto_mack" jdbcType="INTEGER" property="autoMack" />
+    <association property="examClasses" javaType="cn.com.exam.entity.ExamClasses">
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+      <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+      <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+      <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+      <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+      <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+      <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+      <result column="status" jdbcType="INTEGER" property="status" />
+    </association>
+    <association property="userGrade" javaType="cn.com.exam.entity.UserGrade">
+      <result column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="user_name" jdbcType="VARCHAR" property="userName" />
+      <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+      <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+      <result column="grade" jdbcType="DOUBLE" property="grade" />
+      <result column="grade_auto" jdbcType="DOUBLE" property="gradeAuto" />
+      <result column="answer_date" jdbcType="TIMESTAMP" property="answerDate" />
+      <result column="answer_time" jdbcType="INTEGER" property="answerTime" />
+      <result column="mark_status" jdbcType="INTEGER" property="markStatus" />
+      <result column="exam_status" jdbcType="INTEGER" property="examStatus" />
+    </association>
+    <collection property="userTopicList" ofType="cn.com.exam.entity.UserTopic">
+      <result column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="topic_id" jdbcType="INTEGER" property="topicId" />
+      <result column="user_answer" jdbcType="VARCHAR" property="userAnswer" />
+      <result column="user_score" jdbcType="DOUBLE" property="userScore" />
+      <result column="topic_status" jdbcType="VARCHAR" property="topicStatus" />
+    </collection>
+    <collection property="topicTchDTOList" ofType="cn.com.exam.DTO.TopicTchDTO">
+      <id column="topic_id" jdbcType="INTEGER" property="topicId" />
+      <result column="question" jdbcType="VARCHAR" property="question" />
+      <result column="choice" jdbcType="VARCHAR" property="choice" />
+      <result column="photo" jdbcType="VARCHAR" property="photo" />
+      <result column="topic_type" jdbcType="INTEGER" property="topicType" />
+      <result column="correct_answer" jdbcType="VARCHAR" property="correctAnswer" />
+      <result column="score" jdbcType="FLOAT" property="score" />
+      <result column="difficulty" jdbcType="VARCHAR" property="difficulty" />
+      <result column="analysis" jdbcType="VARCHAR" property="analysis" />
+      <result column="required" jdbcType="INTEGER" property="required" />
+    </collection>
+  </resultMap>
+
+  <resultMap id="ExamClassesDTO" type="cn.com.exam.DTO.ExamClassesDTO">
+    <id column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+    <result column="topic_num" jdbcType="INTEGER" property="topicNum" />
+    <result column="total_score" jdbcType="FLOAT" property="totalScore" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+    <result column="permit_copy" jdbcType="INTEGER" property="permitCopy" />
+    <result column="disrupt_order" jdbcType="INTEGER" property="disruptOrder" />
+    <result column="repeat_test" jdbcType="INTEGER" property="repeatTest" />
+    <result column="auto_mack" jdbcType="INTEGER" property="autoMack" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+    <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+    <result column="grade" jdbcType="DOUBLE" property="grade" />
+    <result column="mark_status" jdbcType="INTEGER" property="markStatus" />
+    <result column="exam_status" jdbcType="INTEGER" property="examStatus" />
+  </resultMap>
+
+  <resultMap id="MarkExamDTO" type="cn.com.exam.DTO.MarkExamInfoDTO">
+    <id column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="time" jdbcType="INTEGER" property="time" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="subject_id" jdbcType="INTEGER" property="subjectId" />
+    <result column="topic_num" jdbcType="INTEGER" property="topicNum" />
+    <result column="total_score" jdbcType="FLOAT" property="totalScore" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+    <result column="permit_copy" jdbcType="INTEGER" property="permitCopy" />
+    <result column="disrupt_order" jdbcType="INTEGER" property="disruptOrder" />
+    <result column="repeat_test" jdbcType="INTEGER" property="repeatTest" />
+    <result column="auto_mack" jdbcType="INTEGER" property="autoMack" />
+    <association property="examClasses" javaType="cn.com.exam.entity.ExamClasses">
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+      <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+      <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+      <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+      <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+      <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+      <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+      <result column="status" jdbcType="INTEGER" property="status" />
+    </association>
+    <association property="userGrade" javaType="cn.com.exam.entity.UserGrade">
+      <result column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="user_name" jdbcType="VARCHAR" property="userName" />
+      <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+      <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+      <result column="grade" jdbcType="DOUBLE" property="grade" />
+      <result column="grade_auto" jdbcType="DOUBLE" property="gradeAuto" />
+      <result column="answer_date" jdbcType="TIMESTAMP" property="answerDate" />
+      <result column="answer_time" jdbcType="INTEGER" property="answerTime" />
+      <result column="mark_status" jdbcType="INTEGER" property="markStatus" />
+      <result column="exam_status" jdbcType="INTEGER" property="examStatus" />
+    </association>
+    <collection property="userTopicList" ofType="cn.com.exam.entity.UserTopic">
+      <result column="user_id" jdbcType="INTEGER" property="userId" />
+      <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+      <result column="exam_id" jdbcType="INTEGER" property="examId" />
+      <result column="topic_id" jdbcType="INTEGER" property="topicId" />
+      <result column="user_answer" jdbcType="VARCHAR" property="userAnswer" />
+      <result column="user_score" jdbcType="DOUBLE" property="userScore" />
+      <result column="topic_status" jdbcType="VARCHAR" property="topicStatus" />
+    </collection>
+    <collection property="topicTchDTOList" ofType="cn.com.exam.DTO.TopicTchDTO">
+      <id column="topic_id" jdbcType="INTEGER" property="topicId" />
+      <result column="question" jdbcType="VARCHAR" property="question" />
+      <result column="choice" jdbcType="VARCHAR" property="choice" />
+      <result column="photo" jdbcType="VARCHAR" property="photo" />
+      <result column="topic_type" jdbcType="INTEGER" property="topicType" />
+      <result column="correct_answer" jdbcType="VARCHAR" property="correctAnswer" />
+      <result column="score" jdbcType="FLOAT" property="score" />
+      <result column="difficulty" jdbcType="VARCHAR" property="difficulty" />
+      <result column="analysis" jdbcType="VARCHAR" property="analysis" />
+      <result column="required" jdbcType="INTEGER" property="required" />
+    </collection>
+  </resultMap>
+
+  <sql id="Base_Column_List">
+      exam_id, exam_name, creator_id, `time`, create_date, update_date, subject_id,
+    topic_num, total_score, pass_mark, permit_copy, disrupt_order, repeat_test,
+     auto_mack,switch_page
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from exam
+    where exam_id = #{examId,jdbcType=INTEGER}
+  </select>
+  <select id="tchSelectByPrimaryKey" resultMap="ExamTopicTchDTO">
+    select
+    e.* , t.* , u.user_name as creator_name
+    from exam e
+    join exam_topic et on e.exam_id = et.exam_id
+    join topic t on t.topic_id = et.topic_id
+    join user u on u.user_id = e.creator_id
+    where e.exam_id = #{examId,jdbcType=INTEGER}
+  </select>
+  <select id="stuSelectByPrimaryKey" resultMap="ExamTopicStuDTO">
+    select
+    e.* , t.* , ec.* ,ug.* ,ut.*, u.user_name as creator_name ,c.classes_name
+    from exam e
+    join exam_topic et on e.exam_id = et.exam_id
+    join user u on u.user_id = e.creator_id
+    join topic t on t.topic_id = et.topic_id
+    join exam_classes ec on ec.exam_id = e.exam_id and ec.classes_id = #{classesId,jdbcType=INTEGER}
+    join classes c on c.classes_id = ec.classes_id
+    left join user_grade ug on ug.user_id=${userId} and ug.exam_id=ec.exam_id and ug.classes_id=ec.classes_id
+    left join user_topic ut on ut.user_id=${userId} and ut.exam_id=ec.exam_id and ut.topic_id=t.topic_id and ut.classes_id = ec.classes_id
+    where e.exam_id = #{examId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByCreatorId" resultMap="BaseResultMap">
+    select
+     *
+    from exam
+    where creator_id = #{userId,jdbcType=INTEGER} and (exam_id like concat('%',#{keyword},'%') or exam_name like concat('%',#{keyword},'%'))
+    order by update_date desc
+  </select>
+    <select id="selectByClassesId" resultMap="ExamClassesDTO">
+      select
+      e.*, ec.* ,ug.*
+      from exam e
+      join exam_classes ec on ec.exam_id = e.exam_id
+      left join user_grade ug on ug.user_id=${userId} and ug.exam_id=ec.exam_id and ug.classes_id=ec.classes_id
+      where ec.classes_id = #{classesId,jdbcType=INTEGER}
+    </select>
+  <select id="selestStuExamInfo" resultMap="MarkExamDTO">
+    select
+    e.* , t.* , ec.* ,ug.* ,ut.*
+    from exam e
+    join exam_topic et on e.exam_id = et.exam_id
+    join topic t on t.topic_id = et.topic_id
+    join exam_classes ec on ec.exam_id = e.exam_id and ec.classes_id = #{classesId,jdbcType=INTEGER}
+    join user_grade ug on ug.user_id=${userId} and ug.exam_id=ec.exam_id and ug.classes_id=ec.classes_id
+    join user_topic ut on ut.user_id=${userId} and ut.exam_id=ec.exam_id and ut.topic_id=t.topic_id and ut.classes_id = ec.classes_id
+    where e.exam_id = #{examId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from exam
+    where exam_id = #{examId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="exam_id" keyProperty="examId" parameterType="cn.com.exam.entity.Exam" useGeneratedKeys="true">
+    insert into exam (exam_name, creator_id,
+      `time`, create_date, update_date, 
+      subject_id, topic_num,
+      total_score, pass_mark, permit_copy, 
+      disrupt_order, repeat_test, auto_mack, switch_page
+      )
+    values (#{examName,jdbcType=VARCHAR}, #{creatorId,jdbcType=INTEGER},
+      #{time,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP}, 
+      #{subjectId,jdbcType=INTEGER}, #{topicNum,jdbcType=INTEGER},
+      #{totalScore,jdbcType=FLOAT}, #{passMark,jdbcType=FLOAT}, #{permitCopy,jdbcType=INTEGER}, 
+      #{disruptOrder,jdbcType=INTEGER}, #{repeatTest,jdbcType=INTEGER},#{autoMack,jdbcType=INTEGER},
+      #{switchPage,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="exam_id" keyProperty="examId" parameterType="cn.com.exam.entity.Exam" useGeneratedKeys="true">
+    insert into exam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examName != null">
+        exam_name,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="time != null">
+        `time`,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="subjectId != null">
+        subject_id,
+      </if>
+      <if test="topicNum != null">
+        topic_num,
+      </if>
+      <if test="totalScore != null">
+        total_score,
+      </if>
+      <if test="passMark != null">
+        pass_mark,
+      </if>
+      <if test="permitCopy != null">
+        permit_copy,
+      </if>
+      <if test="switchPage != null">
+        switch_page,
+      </if>
+      <if test="disruptOrder != null">
+        disrupt_order,
+      </if>
+      <if test="repeatTest != null">
+        repeat_test,
+      </if>
+      <if test="autoMack != null">
+        auto_mack,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examName != null">
+        #{examName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subjectId != null">
+        #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="subjectName != null">
+        #{subjectName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicNum != null">
+        #{topicNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalScore != null">
+        #{totalScore,jdbcType=FLOAT},
+      </if>
+      <if test="passMark != null">
+        #{passMark,jdbcType=FLOAT},
+      </if>
+      <if test="permitCopy != null">
+        #{permitCopy,jdbcType=INTEGER},
+      </if>
+      <if test="switchPage != null">
+        #{switch_page,jdbcType=INTEGER},
+      </if>
+      <if test="disruptOrder != null">
+        #{disruptOrder,jdbcType=INTEGER},
+      </if>
+      <if test="repeatTest != null">
+        #{repeatTest,jdbcType=INTEGER},
+      </if>
+      <if test="autoMack != null">
+        #{autoMack,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.Exam">
+    update exam
+    <set>
+      <if test="examName != null">
+        exam_name = #{examName,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        `time` = #{time,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="subjectId != null">
+        subject_id = #{subjectId,jdbcType=INTEGER},
+      </if>
+      <if test="topicNum != null">
+        topic_num = #{topicNum,jdbcType=INTEGER},
+      </if>
+      <if test="totalScore != null">
+        total_score = #{totalScore,jdbcType=FLOAT},
+      </if>
+      <if test="passMark != null">
+        pass_mark = #{passMark,jdbcType=FLOAT},
+      </if>
+      <if test="permitCopy != null">
+        permit_copy = #{permitCopy,jdbcType=INTEGER},
+      </if>
+      <if test="switchPage != null">
+        switch_page = #{switchPage,jdbcType=INTEGER},
+      </if>
+      <if test="disruptOrder != null">
+        disrupt_order = #{disruptOrder,jdbcType=INTEGER},
+      </if>
+      <if test="repeatTest != null">
+        repeat_test = #{repeatTest,jdbcType=INTEGER},
+      </if>
+      <if test="autoMack != null">
+        auto_mack = #{autoMack,jdbcType=INTEGER},
+      </if>
+    </set>
+    where exam_id = #{examId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.Exam">
+    update exam
+    set exam_name = #{examName,jdbcType=VARCHAR},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      `time` = #{time,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      subject_id = #{subjectId,jdbcType=INTEGER},
+      topic_num = #{topicNum,jdbcType=INTEGER},
+      total_score = #{totalScore,jdbcType=FLOAT},
+      pass_mark = #{passMark,jdbcType=FLOAT},
+      permit_copy = #{permitCopy,jdbcType=INTEGER},
+      switch_page = #{switchPage,jdbcType=INTEGER},
+      disrupt_order = #{disruptOrder,jdbcType=INTEGER},
+      repeat_test = #{repeatTest,jdbcType=INTEGER},
+      auto_mack = #{autoMack,jdbcType=INTEGER}
+    where exam_id = #{examId,jdbcType=INTEGER}
+  </update>
+</mapper>

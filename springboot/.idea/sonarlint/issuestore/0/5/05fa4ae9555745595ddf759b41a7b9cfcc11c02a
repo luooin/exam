@@ -1,0 +1,12 @@
+
+¢
+java:S1192‘"^Define a constant instead of duplicating this literal "http://localhost:8081/images/" 3 times.(ûİÁ¹8¸õ€úî1J$7ed95b7e-0542-4d13-abc4-b5f216625b38
+“	java:S117d"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üü¼ô8¹õ€úî1J$752cc6bf-98f5-43e2-ad9a-88064f7da994
+š
+java:S37768"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(ŞŒÛúÿÿÿÿ8àõ€úî1J$663b5826-f0d4-420c-9047-936ca81cd410
+m	java:S106E"+Replace this use of System.out by a logger.(Ø¼¢ƒ8ãõ€úî1J$63d14856-3819-44ba-bc81-cd470da70133
+m	java:S106X"+Replace this use of System.out by a logger.(Ø¼¢ƒ8ãõ€úî1J$2d552755-76b1-4a73-8424-ced780d49705
+ƒ
+java:S1854e";Remove this useless assignment to local variable "classes".(ÿÌØıÿÿÿÿÿ8åõ€úî1J$7bf8d023-0921-4988-a709-632430cbce8b
+s	java:S106©"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ìõ€úî1J$88c86876-ff42-426a-8203-37a8a0408f58
+s	java:S106Ç"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8ïõ€úî1J$10a0ee71-e572-41e1-9d15-28b071e0f123

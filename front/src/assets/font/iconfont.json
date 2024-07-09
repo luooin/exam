@@ -1,0 +1,16 @@
+{
+  "id": "2191309",
+  "name": "毕设",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "3930502",
+      "name": "老师",
+      "font_class": "laoshi",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    }
+  ]
+}

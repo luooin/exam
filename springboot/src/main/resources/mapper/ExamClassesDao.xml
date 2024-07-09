@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.ExamClassesDao">
+  <resultMap id="BaseResultMap" type="cn.com.exam.entity.ExamClasses">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+    <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <resultMap id="releaseExamDTO" type="cn.com.exam.DTO.ReleaseExamDTO">
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+    <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="pass_mark" jdbcType="FLOAT" property="passMark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, exam_id, classes_id, release_time, start_date, deadline,
+    publish_answer, publish_score, `status`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from exam_classes
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByExamId" resultMap="BaseResultMap">
+    select
+    ec.* ,c.classes_name ,e.exam_id, e.exam_name
+    from exam_classes ec
+    join classes c on c.classes_id = ec.classes_id
+    join exam e on e.exam_id = ec.exam_id
+    where ec.exam_id = #{examId,jdbcType=INTEGER}
+  </select>
+    <select id="selectRecord" resultMap="releaseExamDTO">
+      select
+      ec.* ,c.classes_name ,e.exam_id, e.exam_name, e.pass_mark
+      from exam_classes ec
+      join classes c on c.classes_id = ec.classes_id
+      join exam e on e.exam_id = ec.exam_id
+      where ec.exam_id = #{examId,jdbcType=INTEGER} and ec.classes_id = #{classesId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from exam_classes
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExamId" parameterType="java.lang.Integer">
+    delete from exam_classes
+    where exam_id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteRecord">
+    delete from exam_classes
+    where exam_id = #{examId,jdbcType=INTEGER} and classes_id = #{classesId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.ExamClasses" useGeneratedKeys="true">
+    insert into exam_classes (exam_id, classes_id, release_time, start_date,
+      deadline, publish_answer, publish_score, 
+      `status`)
+    values (#{examId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{releaseTime,jdbcType=TIMESTAMP}, #{startDate,jdbcType=TIMESTAMP},
+      #{deadline,jdbcType=TIMESTAMP}, #{publishAnswer,jdbcType=INTEGER}, #{publishScore,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.ExamClasses" useGeneratedKeys="true">
+    insert into exam_classes
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="classesId != null">
+        classes_id,
+      </if>
+      <if test="releaseTime != null">
+        release_time,
+      </if>
+      <if test="startDate != null">
+        start_date,
+      </if>
+      <if test="deadline != null">
+        deadline,
+      </if>
+      <if test="publishAnswer != null">
+        publish_answer,
+      </if>
+      <if test="publishScore != null">
+        publish_score,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null">
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null">
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishAnswer != null">
+        #{publishAnswer,jdbcType=INTEGER},
+      </if>
+      <if test="publishScore != null">
+        #{publishScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.ExamClasses">
+    update exam_classes
+    <set>
+      <if test="examId != null">
+        exam_id = #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null">
+        classes_id = #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishAnswer != null">
+        publish_answer = #{publishAnswer,jdbcType=INTEGER},
+      </if>
+      <if test="publishScore != null">
+        publish_score = #{publishScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.ExamClasses">
+    update exam_classes
+    set exam_id = #{examId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      publish_answer = #{publishAnswer,jdbcType=INTEGER},
+      publish_score = #{publishScore,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateRecord" parameterType="cn.com.exam.entity.ExamClasses">
+    update exam_classes
+    <set>
+      <if test="releaseTime != null">
+        release_time = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null">
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="publishAnswer != null">
+        publish_answer = #{publishAnswer,jdbcType=INTEGER},
+      </if>
+      <if test="publishScore != null">
+        publish_score = #{publishScore,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where exam_id = #{examId,jdbcType=INTEGER} and classes_id = #{classesId,jdbcType=INTEGER}
+  </update>
+</mapper>

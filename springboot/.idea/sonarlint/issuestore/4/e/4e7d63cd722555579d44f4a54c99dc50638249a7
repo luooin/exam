@@ -1,0 +1,15 @@
+
+‹
+java:S1192L"HDefine a constant instead of duplicating this literal "teacher" 4 times.(íÀÕÕ8ë·‹ï1J$67e3960a-9ada-4d7b-ab90-ed5dd833eb7c
+™
+java:S1192M"VDefine a constant instead of duplicating this literal "ç”¨æˆ·èº«ä»½ä¸æ­£ç¡®" 4 times.(Èä„‡8ë·‹ï1J$06f9750d-34d4-4374-937f-2c800443931f
+‰
+java:S1192$"FDefine a constant instead of duplicating this literal "token" 9 times.(È¾Æ´8ë·‹ï1J$ea6093f6-ab63-41f8-9751-ad5c6de1a5be
+“	java:S117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹Øº¯8ë·‹ï1J$21c52ba2-c887-4a1e-baf4-ddb76d31a771
+“	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8ë·‹ï1J$6240b061-d8b0-47f9-876c-b7e1c6e6f6f9
+“	java:S117B"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8ë·‹ï1J$84dfd205-bc22-4fde-a92d-4668a21ff77a
+“	java:S117t"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8ë·‹ï1J$31cc6d56-eb1c-4c4b-87e9-18a1dbc08a70
+”	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8ë·‹ï1J$6464b0c7-bd4b-4981-babd-cc37638f8b77
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éŞĞÃ8£ë·‹ï1J$1d471756-034b-4896-8625-15ce5c0d48b2
+	java:S100J"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ßËĞ„8¨ë·‹ï1J$98c77ad7-7f09-4c38-ac55-7ceb62d92450
+m	java:S106"+Replace this use of System.out by a logger.(Ï‚˜Ç8®ë·‹ï1J$d2303a53-609a-4013-bdcd-6f49cb369b2c

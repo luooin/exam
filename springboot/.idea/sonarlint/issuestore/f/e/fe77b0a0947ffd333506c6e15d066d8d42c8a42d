@@ -1,0 +1,4 @@
+
+	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.( ÅÉŠÿÿÿÿÿJ$14f02761-4499-4781-82d6-0573b63cc065
+
+java:S4042G"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ë“«øÿÿÿÿJ$f764aed1-7cc6-4091-8b36-706162e221c4

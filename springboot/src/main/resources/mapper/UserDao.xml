@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.UserDao">
+    <resultMap id="BaseResultMap" type="cn.com.exam.entity.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="role" jdbcType="VARCHAR" property="role"/>
+        <result column="work" jdbcType="VARCHAR" property="work"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="photo_name" jdbcType="VARCHAR" property="photoName"/>
+    </resultMap>
+    <resultMap id="UserClassesDTO" type="cn.com.exam.DTO.UserClassesDTO">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="sex" jdbcType="VARCHAR" property="sex"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="role" jdbcType="VARCHAR" property="role"/>
+        <result column="work" jdbcType="VARCHAR" property="work"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="photo_name" jdbcType="VARCHAR" property="photoName"/>
+        <result column="position" jdbcType="VARCHAR" property="position"/>
+        <result column="enter_date" jdbcType="TIMESTAMP" property="enterDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        user_id, user_name, sex, phone, email, `role`, `work`, update_date, create_date,
+        photo,photo_name
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByEmail" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where email = #{email}
+    </select>
+    <select id="selectByUserName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where user_name = #{username}
+    </select>
+    <select id="selectByPhone" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where phone = #{phone}
+    </select>
+    <select id="loginByEmail" resultMap="BaseResultMap">
+        select u.* from user u,user_password u_p
+        where u.email=#{email} and u_p.password=#{password} and u_p.user_id=#{userId}
+    </select>
+    <select id="loginByPhone" resultMap="BaseResultMap">
+        select u.* from user u,user_password u_p
+        where u.phone=#{phone} and u_p.password=#{password} and u_p.user_id=#{userId}
+    </select>
+    <select id="loginByUserName" resultMap="BaseResultMap">
+        select u.* from user u,user_password u_p
+        where u.user_name=#{username} and u_p.password=#{password} and u_p.user_id=#{userId}
+    </select>
+    <select id="selectByC_id" resultMap="UserClassesDTO">
+        select
+        u.* , u_c.position , u_c.enter_date
+        from user u join user_classes u_c on u.user_id=u_c.user_id
+        where u_c.classes_id=#{classesId}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="cn.com.exam.entity.User"
+            useGeneratedKeys="true">
+        insert into user (user_name, sex, phone,
+        email, `role`, `work`,
+        update_date, create_date, photo, photo_name
+        )
+        values (#{userName,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR},
+        #{email,jdbcType=VARCHAR}, #{role,jdbcType=VARCHAR}, #{work,jdbcType=VARCHAR},
+        #{updateDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP},
+        #{photo,jdbcType=VARCHAR},#{photoName,jdbcType=VARCHAR}
+        )
+    </insert>
+    <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="cn.com.exam.entity.User"
+            useGeneratedKeys="true">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="sex != null">
+                sex,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="role != null">
+                `role`,
+            </if>
+            <if test="work != null">
+                `work`,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="photo != null">
+                photo,
+            </if>
+            <if test="photoName != null">
+                photo_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="role != null">
+                #{role,jdbcType=VARCHAR},
+            </if>
+            <if test="work != null">
+                #{work,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="photo != null">
+                #{photo,jdbcType=VARCHAR},
+            </if>
+            <if test="photoName != null">
+                #{photoName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.User">
+        update user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null">
+                sex = #{sex,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="role != null">
+                `role` = #{role,jdbcType=VARCHAR},
+            </if>
+            <if test="work != null">
+                `work` = #{work,jdbcType=VARCHAR},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="photo != null">
+                photo = #{photo,jdbcType=VARCHAR},
+            </if>
+            <if test="photoName != null">
+                photo_name = #{photoName,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.User">
+        update user
+        set user_name = #{userName,jdbcType=VARCHAR},
+        sex = #{sex,jdbcType=VARCHAR},
+        phone = #{phone,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        `role` = #{role,jdbcType=VARCHAR},
+        `work` = #{work,jdbcType=VARCHAR},
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+        photo = #{photo,jdbcType=VARCHAR},
+        photo_name = #{photoName,jdbcType=VARCHAR}
+        where user_id = #{userId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        SELECT u.*,p.`password` FROM user u,user_password p WHERE u.user_id = p.user_id
+        <if test="username != null and username != ''  ">
+            and u.user_name like concat('%',#{username},'%')
+        </if>
+    </select>
+</mapper>

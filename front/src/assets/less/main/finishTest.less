@@ -1,0 +1,63 @@
+.FinishTest{
+    height: 100%;
+
+    .tab-content{
+        padding: 10px 20px;
+    }
+    .class-list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: flex-start;
+    }
+
+    .class-box{
+        // display: inline-block;
+        position: relative;
+        width: 44%;
+        background: #fff;
+        border-radius: 6px;
+        padding: 0 20px;
+        margin: 20px 3%;
+        box-sizing: border-box;
+
+        .title{
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 14px 0px;
+            font-size: 18px;
+            border-bottom: 1px solid #e4e4e4;
+            cursor: pointer;
+        }
+        .title .classNo{
+            position: relative;
+            top: 1px;
+            margin: 0 24px
+        }
+        .title-but{
+            position: absolute;
+            right: 20px;
+        }
+
+        .info-item{
+            padding: 10px 10px;
+
+            p{
+                text-indent:2em;
+                margin-top: 10px;
+            }
+        }
+
+        .class-button{
+            position: absolute;
+            bottom: 0;
+            right: 20px;
+            padding: 10px 10px;
+        }
+    }
+
+    .class-box:last-child{
+        // margin-right: auto;
+    }
+}

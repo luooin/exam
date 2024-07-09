@@ -1,0 +1,137 @@
+.content-bg{
+    height: 100%;
+    background: #f7f7f7e0;
+    // position: relative;
+    // overflow: auto;
+    // min-width: 1040px;
+
+    .tab-title{
+        position: absolute;
+        top: -40px;
+        left: 200px;
+        // max-width: 900px;
+        // overflow: hidden;
+    }
+
+    .tabTitle-item{
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0 16px;
+        height: 40px;
+        line-height: 40px;
+        background: #336699;
+        color: #fff;
+        border: 1px solid #f7f7f7;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+
+
+        .title{
+            display: inline-block;
+            line-height:40px;
+            vertical-align: bottom;
+        }
+        span{
+            display:inline-block;
+            width:14px;
+            height:14px;
+            margin-left: 4px;
+            text-align:center;
+            font-size:14px;
+            border-radius:50%;
+        }
+        span:hover{
+            background:#aaa;
+        }
+
+
+    }
+    .tabTitle-item.active{
+        background: #f7f7f7;
+        color: #001133;
+
+
+    }
+    .tabTitle-item:hover{
+        background: #eee;
+        color: #333;
+        // box-shadow: inset 0 0 30px #ccc;
+    }
+    .tabTitle-item:first-child{
+        border-top-left-radius: 4px;
+    }
+    .tabTitle-item:last-child{
+        border-top-right-radius: 4px;
+    }
+
+    .classesNameInput{
+        position: absolute;
+        right: 320px;
+        top: -40px;
+        width: 500px;
+    }
+    .classesNameInput .el-input{
+        width: 400px;
+        margin-right: 12px;
+    }
+    .classesNameInput .el-input.is-active .el-input__inner,.classesNameInput .el-input__inner:focus{
+        border-color: #000;
+    }
+    .classesNameInput .el-button{
+        background: #29527c;
+        color: #fff;
+        border-color: #f6f6f6;
+    }
+    .classesNameInput .el-button:hover{
+        background: #f6f6f6;
+        color: #333;
+    }
+
+    .tab-item{
+        // font-size: 20px;
+        height: 100%;
+        // min-width: 1050px;
+        overflow: auto;
+        // overflow-x:auto;
+    }
+}
+
+
+/* ------------------------------ */
+.my-tab{
+    position: relative;
+    height: 100%;
+    // background: #f7f7f7e0;
+
+
+    .el-tabs{
+        height: 100%;
+    }
+    .el-tabs__item{
+        color: #f7f7f7;
+        padding: 0 21px;
+    }
+    .el-tabs__item.is-active{
+        background: #f7f7f7;
+        color:#333
+    }
+    .el-tabs__header{
+        position: absolute;
+        top: -40px;
+        margin: 0;
+        width: 650px;
+    }
+
+    .el-tabs__content,.el-tab-pane{
+        height: 100%;
+    }
+}
+.tabContent-item{
+    background: #f7f7f7e0;
+    width: 100%;
+    height: 100%;
+    .table{
+        width: 800px;
+    }
+}

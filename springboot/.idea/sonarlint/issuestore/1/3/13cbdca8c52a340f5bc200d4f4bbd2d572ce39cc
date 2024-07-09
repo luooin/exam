@@ -1,0 +1,14 @@
+
+m	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘‡©õ8ª”šÌè1
+r	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ÜÇ´ûÿÿÿÿ8«”šÌè1
+r	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ÜÇ´ûÿÿÿÿ8«”šÌè1
+l	java:S117V"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıì›E8«”šÌè1
+r	java:S117e"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü¥•‚ÿÿÿÿÿ8«”šÌè1
+n	java:S117İ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8«”šÌè1
+L	java:S1064"+Replace this use of System.out by a logger.(Ï±Èÿşÿÿÿÿ8Ø”šÌè1
+^
+java:S3457J"AFormat specifiers should be used instead of string concatenation.(ìçşÛ8ù‘êÍû1
+L	java:S106\"+Replace this use of System.out by a logger.(¨¶ÑÍşÿÿÿÿ8é”šÌè1
+X	java:S125š"<This block of commented-out lines of code should be removed.(Öé‹8ò”šÌè1
+_
+java:S3457Æ"AFormat specifiers should be used instead of string concatenation.(¥şæ8„’êÍû1

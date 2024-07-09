@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.TopicSubjectDao">
+    <resultMap id="BaseResultMap" type="cn.com.exam.entity.TopicSubject">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="subject_id" jdbcType="INTEGER" property="subjectId"/>
+        <result column="exam_id" jdbcType="INTEGER" property="examId"/>
+        <result column="topic_id" jdbcType="INTEGER" property="topicId"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, exam_id, subject_id, topic_id, create_date, update_date
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from topic_subject
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <select id="selectByExamId" resultMap="BaseResultMap">
+        select ts.*,
+               t.topic_type,
+               t.score,
+               t.create_date,
+               t.update_date,
+               e.exam_id,
+               e.exam_name
+        from topic_subject ts
+                 join exam.topic t on t.topic_id = ts.topic_id
+                 join exam e on e.exam_id = ts.exam_id
+        where ts.exam_id = #{examId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from topic_subject
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <delete id="deleteBySubjectId" parameterType="java.lang.Integer">
+        delete
+        from topic_subject
+        where topic_subject.subject_id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.TopicSubject"
+            useGeneratedKeys="true">
+        insert into topic_subject (exam_id, subject_id, topic_id, topic_subject.create_date,
+                                   update_date)
+        values (#{examId,jdbcType=INTEGER}, #{subjectId,jdbcType=INTEGER}, #{topicId,jdbcType=INTEGER},
+                #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.TopicSubject"
+            useGeneratedKeys="true">
+        insert into topic_subject
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="examId != null">
+                exam_id,
+            </if>
+            <if test="subject_Id != null">
+                subject_id,
+            </if>
+            <if test="create_date != null">
+                create_date,
+            </if>
+            <if test="topic_id != null">
+                topic_id,
+            </if>
+            <if test="update_date != null">
+                update_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="examId != null">
+                #{examId,jdbcType=INTEGER},
+            </if>
+            <if test="subject_Id != null">
+                #{subjectId,jdbcType=INTEGER},
+            </if>
+            <if test="create_date != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_date != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="topic_id != null">
+                #{topicId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.TopicSubject">
+        update topic_subject
+        <set>
+            <if test="examId != null">
+                exam_id = #{examId,jdbcType=INTEGER},
+            </if>
+            <if test="subject_Id != null">
+                subject_id = #{subjectId,jdbcType=INTEGER},
+            </if>
+            <if test="topic_id != null">
+                topic_id = #{topicId,jdbcType=INTEGER},
+            </if>
+            <if test="create_Date != null">
+                create_Date = #{startDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="update_date != null">
+                update_date = #{deadline,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.TopicSubject">
+        update topic_subject
+        set exam_id     = #{examId,jdbcType=INTEGER},
+            subject_id  = #{subjectId,jdbcType=INTEGER},
+            topic_id    = #{topicId,jdbcType=INTEGER},
+            create_date = #{createDate,jdbcType=TIMESTAMP},
+            update_date = #{updateDate,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>

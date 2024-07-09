@@ -1,0 +1,14 @@
+
+„
+java:S1192&"HDefine a constant instead of duplicating this literal "teacher" 3 times.(íÀÕÕJ$a2b2e90e-f15f-4583-b276-238788b2c2fd
+’
+java:S1192'"VDefine a constant instead of duplicating this literal "ç”¨æˆ·èº«ä»½ä¸æ­£ç¡®" 3 times.(Èä„‡J$237a7453-df62-4940-9f02-37469106dd30
+‚
+java:S1192"FDefine a constant instead of duplicating this literal "token" 4 times.(È¾Æ´J$2d4e5397-05a7-4ba8-89e6-756544f1347f
+Œ	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æøöJ$df556b96-c0be-485c-8cab-e98062fae577
+Œ	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æøöJ$71998ccb-954a-4534-be81-56dba31e987f
+u
+java:S1854"9Remove this useless assignment to local variable "token".(È¾Æ´J$55e84dcc-9a1a-490e-983f-2722ecc04af3
+f
+java:S1481"*Remove this unused "token" local variable.(È¾Æ´J$665307dc-264c-4810-b525-4577c57fc0dc
+k	java:S106#"+Replace this use of System.out by a logger.(öÑ„şÿÿÿÿJ$6758580b-1e18-4510-b61a-80e555783a16

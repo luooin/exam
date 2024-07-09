@@ -1,0 +1,205 @@
+@baseColor: #336699;
+
+.header {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    background: @baseColor;
+    color: #fff;
+
+    .logo{
+        float: left;
+        margin:0 20px;
+        font-size: 28px;
+        font-family: "FZShuTi", "SimSun", " Microsoft YaHei", serif;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .logo:hover{
+        color: #111;
+    }
+    .person{
+        float: right;
+        margin-right: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .img{
+            float: left;
+            margin-right: 10px;
+            width: 40px;
+            height: 40px;
+            background: #eee;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .name{
+            height: 50px;
+            float: right;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+    }
+    .person:hover .dropdown{
+        display: block;
+    }
+    .dropdown{
+        display: none;
+        position: absolute;
+        right: 46px;
+        top: 50px;
+        width: 150px;
+        text-align: center;
+        line-height: 48px;
+        font-size: 16px;
+        background: #336699;
+        z-index: 999;
+        cursor: pointer;
+
+        .item:hover{
+            background: #29527c;
+        }
+    }
+
+}
+.main{
+    position: relative;
+    // top: 50px;
+    // bottom: 0px;
+    // left: 0px;
+    width:  100%;
+    height: calc(100% - 25px);
+    // min-height: 460px;
+
+    // background: url(../../assets/images/gangbi-007.jpg);
+    background: #ccc;
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: cover;
+
+}
+.aside{
+    position: absolute;
+    width: 200px;
+    height: 100%;
+    overflow: auto;
+    background: @baseColor;
+    z-index: 999;
+    transition: 0.3s;
+    // min-height: 460px;
+
+    .menu{
+        height: 480px;
+        background: @baseColor;
+    }
+
+    .menu-item{
+        height: 60px;
+        padding-left: 20px;
+        line-height: 60px;
+        background: @baseColor;
+        color: #001133;
+        font-size: 18px;
+        cursor: pointer;
+        overflow:hidden;
+
+
+        i{
+            font-size: 20px;
+            margin-right: 10px;
+        }
+    }
+    .menu-item:hover{
+        background: #29527c;
+        color: #f7f7f7;
+    }
+    .menu-item.active{
+        background: #29527c;
+        color: #f7f7f7;
+
+        // background: #272727;
+    }
+    // .spread{
+    //     position: absolute;
+    //     bottom: 20px;
+    //     color: #fff;
+    //     font-size: 22px;
+    //     transform: rotate(90deg);
+    //     cursor: pointer;
+    // }
+    // .spread.isSpread{
+    //     left: 10px;
+    // }
+    // .spread.isPackup{
+    //     right: 10px;
+    // }
+    .spread{
+        position: relative;
+        height: calc(100% - 480px);
+        min-height: 70px;
+
+        i{
+            position: absolute;
+            bottom: 40px;
+            color: #fff;
+            font-size: 24px;
+            transform: rotate(90deg);
+            cursor: pointer;
+        }
+        i.isSpread{
+            left: 10px;
+        }
+        i.isPackup{
+            right: 10px;
+        }
+    }
+
+}
+
+.main-content{
+    float: right;
+    width: calc(100% - 200px);
+    // min-width: 1040px;
+    height: 100%;
+    // background: #f7f7f7;
+    transition: 0.3s;
+    // overflow: auto;
+}
+
+//表格居中
+.el-table{
+
+    .cell{
+        text-align: center;
+    }
+}
+
+
+.aside::-webkit-scrollbar {/*滚动条整体样式*/
+
+    width: 4px;     /*高宽分别对应横竖滚动条的尺寸*/
+    height: 1px;
+
+}
+.aside::-webkit-scrollbar-thumb {/*滚动条里面小方块*/
+
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    background: #ccc;
+
+}
+.aside::-webkit-scrollbar-track {/*滚动条里面轨道*/
+
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    background: #ffffff;
+
+}
+
+

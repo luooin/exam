@@ -1,0 +1,10 @@
+
+‚
+java:S1192"FDefine a constant instead of duplicating this literal "token" 3 times.(È¾Æ´J$6ca7a13b-a5ea-4268-b1a0-26cfedc5b9ce
+‘	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô§Á«üÿÿÿÿJ$fd0efee9-8c3c-4372-9390-f639dce6470f
+‘	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô§Á«üÿÿÿÿJ$e16f4e8a-8c14-497c-89f8-8d928686afe9
+‘	java:S117:"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ô§Á«üÿÿÿÿJ$55ae3bca-e3a8-40ca-b31c-71c807c907b4
+
+java:S1854/">Remove this useless assignment to local variable "teacher_id".(ô§Á«üÿÿÿÿJ$71dc1d13-0a7c-43be-934c-ebfb6f163803
+p
+java:S1481/"/Remove this unused "teacher_id" local variable.(ô§Á«üÿÿÿÿJ$6b147a4a-dc1b-4fad-8309-a3909bf1ca30

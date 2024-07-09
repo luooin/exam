@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.UserGradeDao">
+  <resultMap id="BaseResultMap" type="cn.com.exam.entity.UserGrade">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="exam_name" jdbcType="VARCHAR" property="examName" />
+    <result column="grade" jdbcType="DOUBLE" property="grade" />
+    <result column="grade_auto" jdbcType="DOUBLE" property="gradeAuto" />
+    <result column="answer_date" jdbcType="TIMESTAMP" property="answerDate" />
+    <result column="answer_time" jdbcType="INTEGER" property="answerTime" />
+    <result column="mark_status" jdbcType="INTEGER" property="markStatus" />
+    <result column="exam_status" jdbcType="INTEGER" property="examStatus" />
+    <result column="mark_date" jdbcType="TIMESTAMP" property="markDate" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, classes_id, exam_id, grade, grade_auto, answer_date, answer_time, mark_status, 
+    exam_status, mark_date
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_grade
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByClassesId" resultMap="BaseResultMap">
+    select
+      u.user_id,u.user_name,c.classes_name,e.exam_name,ug.*
+      from user u
+      join exam e on e.exam_id = #{examId,jdbcType=INTEGER}
+      join classes c on c.classes_id = #{classesId,jdbcType=INTEGER}
+      join user_classes uc on uc.user_id = u.user_id
+      left join user_grade ug on ug.user_id = uc.user_id  and ug.exam_id = e.exam_id and ug.classes_id = c.classes_id
+      where uc.classes_id = #{classesId,jdbcType=INTEGER}
+  </select>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+    select
+      u.user_id,u.user_name,c.classes_name,e.exam_name,ug.*
+      from user_grade ug
+      join exam e on e.exam_id = ug.exam_id
+      join classes c on c.classes_id = ug.classes_id
+      join user u on u.user_id = ug.user_id
+      where ug.user_id = #{userId,jdbcType=INTEGER}
+      order by ug.answer_date desc
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_grade
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.UserGrade" useGeneratedKeys="true">
+    insert into user_grade (user_id, classes_id, exam_id, 
+      grade, grade_auto, answer_date, 
+      answer_time, mark_status, exam_status, 
+      mark_date)
+    values (#{userId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, 
+      #{grade,jdbcType=DOUBLE}, #{gradeAuto,jdbcType=DOUBLE}, #{answerDate,jdbcType=TIMESTAMP}, 
+      #{answerTime,jdbcType=INTEGER}, #{markStatus,jdbcType=INTEGER}, #{examStatus,jdbcType=INTEGER}, 
+      #{markDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.UserGrade" useGeneratedKeys="true">
+    insert into user_grade
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="classesId != null">
+        classes_id,
+      </if>
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="grade != null">
+        grade,
+      </if>
+      <if test="gradeAuto != null">
+        grade_auto,
+      </if>
+      <if test="answerDate != null">
+        answer_date,
+      </if>
+      <if test="answerTime != null">
+        answer_time,
+      </if>
+      <if test="markStatus != null">
+        mark_status,
+      </if>
+      <if test="examStatus != null">
+        exam_status,
+      </if>
+      <if test="markDate != null">
+        mark_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null">
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="grade != null">
+        #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="gradeAuto != null">
+        #{gradeAuto,jdbcType=DOUBLE},
+      </if>
+      <if test="answerDate != null">
+        #{answerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerTime != null">
+        #{answerTime,jdbcType=INTEGER},
+      </if>
+      <if test="markStatus != null">
+        #{markStatus,jdbcType=INTEGER},
+      </if>
+      <if test="examStatus != null">
+        #{examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="markDate != null">
+        #{markDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.UserGrade">
+    update user_grade
+    set user_id = #{userId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      exam_id = #{examId,jdbcType=INTEGER},
+      grade = #{grade,jdbcType=DOUBLE},
+      grade_auto = #{gradeAuto,jdbcType=DOUBLE},
+      answer_date = #{answerDate,jdbcType=TIMESTAMP},
+      answer_time = #{answerTime,jdbcType=INTEGER},
+      mark_status = #{markStatus,jdbcType=INTEGER},
+      exam_status = #{examStatus,jdbcType=INTEGER},
+      mark_date = #{markDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByForeignKeySelective">
+    update user_grade
+    <set>
+      <if test="grade != null">
+        grade = #{grade,jdbcType=DOUBLE},
+      </if>
+      <if test="gradeAuto != null">
+        grade_auto = #{gradeAuto,jdbcType=DOUBLE},
+      </if>
+      <if test="answerDate != null">
+        answer_date = #{answerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="answerTime != null">
+        answer_time = #{answerTime,jdbcType=INTEGER},
+      </if>
+      <if test="markStatus != null">
+        mark_status = #{markStatus,jdbcType=INTEGER},
+      </if>
+      <if test="examStatus != null">
+        exam_status = #{examStatus,jdbcType=INTEGER},
+      </if>
+      <if test="markDate != null">
+        mark_date = #{markDate,jdbcType=INTEGER}
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER} and classes_id = #{classesId,jdbcType=INTEGER} and exam_id = #{examId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.TopicDao">
+    <resultMap id="BaseResultMap" type="cn.com.exam.entity.Topic">
+        <id column="topic_id" jdbcType="INTEGER" property="topicId"/>
+        <result column="creator_id" jdbcType="INTEGER" property="creatorId"/>
+        <result column="question" jdbcType="VARCHAR" property="question"/>
+        <result column="choice" jdbcType="VARCHAR" property="choice"/>
+        <result column="photo" jdbcType="VARCHAR" property="photo"/>
+        <result column="topic_type" jdbcType="INTEGER" property="topicType"/>
+        <result column="correct_answer" jdbcType="VARCHAR" property="correctAnswer"/>
+        <result column="score" jdbcType="FLOAT" property="score"/>
+        <result column="difficulty" jdbcType="VARCHAR" property="difficulty"/>
+        <result column="analysis" jdbcType="VARCHAR" property="analysis"/>
+        <result column="required" jdbcType="INTEGER" property="required"/>
+        <result column="create_date" jdbcType="TIMESTAMP" property="createDate"/>
+        <result column="update_date" jdbcType="TIMESTAMP" property="updateDate"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        topic_id, creator_id, question, choice, photo, topic_type,
+    correct_answer, score, difficulty, analysis, required, create_date, update_date
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from topic
+        where topic_id = #{topicId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete
+        from topic
+        where topic_id = #{topicId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" keyColumn="topic_id" keyProperty="topicId" parameterType="cn.com.exam.entity.Topic"
+            useGeneratedKeys="true">
+        insert into topic (creator_id,
+                           question, choice, photo,
+                           topic_type, correct_answer, score,
+                           difficulty, analysis, required,
+                           create_date, update_date)
+        values (#{creatorId,jdbcType=INTEGER},
+                #{question,jdbcType=VARCHAR}, #{choice,jdbcType=VARCHAR}, #{photo,jdbcType=VARCHAR},
+                #{topicType,jdbcType=INTEGER}, #{correctAnswer,jdbcType=VARCHAR}, #{score,jdbcType=FLOAT},
+                #{difficulty,jdbcType=VARCHAR}, #{analysis,jdbcType=VARCHAR}, #{required,jdbcType=INTEGER},
+                #{createDate,jdbcType=TIMESTAMP}, #{updateDate,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" keyColumn="topic_id" keyProperty="topicId" parameterType="cn.com.exam.entity.Topic"
+            useGeneratedKeys="true">
+        insert into topic
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="creatorId != null">
+                creator_id,
+            </if>
+            <if test="question != null">
+                question,
+            </if>
+            <if test="choice != null">
+                choice,
+            </if>
+            <if test="photo != null">
+                photo,
+            </if>
+            <if test="topicType != null">
+                topic_type,
+            </if>
+            <if test="correctAnswer != null">
+                correct_answer,
+            </if>
+            <if test="score != null">
+                score,
+            </if>
+            <if test="difficulty != null">
+                difficulty,
+            </if>
+            <if test="analysis != null">
+                analysis,
+            </if>
+            <if test="required != null">
+                required,
+            </if>
+            <if test="createDate != null">
+                create_date,
+            </if>
+            <if test="updateDate != null">
+                update_date,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="creatorId != null">
+                #{creatorId,jdbcType=INTEGER},
+            </if>
+            <if test="question != null">
+                #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="choice != null">
+                #{choice,jdbcType=VARCHAR},
+            </if>
+            <if test="photo != null">
+                #{photo,jdbcType=VARCHAR},
+            </if>
+            <if test="topicType != null">
+                #{topicType,jdbcType=INTEGER},
+            </if>
+            <if test="correctAnswer != null">
+                #{correctAnswer,jdbcType=VARCHAR},
+            </if>
+            <if test="score != null">
+                #{score,jdbcType=FLOAT},
+            </if>
+            <if test="difficulty != null">
+                #{difficulty,jdbcType=VARCHAR},
+            </if>
+            <if test="analysis != null">
+                #{analysis,jdbcType=VARCHAR},
+            </if>
+            <if test="required != null">
+                #{required,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateDate != null">
+                #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.Topic">
+        update topic
+        <set>
+            <if test="creatorId != null">
+                creator_id = #{creatorId,jdbcType=INTEGER},
+            </if>
+            <if test="question != null">
+                question = #{question,jdbcType=VARCHAR},
+            </if>
+            <if test="choice != null">
+                choice = #{choice,jdbcType=VARCHAR},
+            </if>
+            <if test="photo != null">
+                photo = #{photo,jdbcType=VARCHAR},
+            </if>
+            <if test="topicType != null">
+                topic_type = #{topicType,jdbcType=INTEGER},
+            </if>
+            <if test="correctAnswer != null">
+                correct_answer = #{correctAnswer,jdbcType=VARCHAR},
+            </if>
+            <if test="score != null">
+                score = #{score,jdbcType=FLOAT},
+            </if>
+            <if test="difficulty != null">
+                difficulty = #{difficulty,jdbcType=VARCHAR},
+            </if>
+            <if test="analysis != null">
+                analysis = #{analysis,jdbcType=VARCHAR},
+            </if>
+            <if test="subjectId != null">
+                subject_id = #{subjectId,jdbcType=INTEGER},
+            </if>
+            <if test="required != null">
+                required = #{required,jdbcType=INTEGER},
+            </if>
+            <if test="createDate != null">
+                create_date = #{createDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateDate != null">
+                update_date = #{updateDate,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where topic_id = #{topicId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.Topic">
+        update topic
+        set creator_id     = #{creatorId,jdbcType=INTEGER},
+            question       = #{question,jdbcType=VARCHAR},
+            choice         = #{choice,jdbcType=VARCHAR},
+            photo          = #{photo,jdbcType=VARCHAR},
+            topic_type     = #{topicType,jdbcType=INTEGER},
+            correct_answer = #{correctAnswer,jdbcType=VARCHAR},
+            score          = #{score,jdbcType=FLOAT},
+            difficulty     = #{difficulty,jdbcType=VARCHAR},
+            analysis       = #{analysis,jdbcType=VARCHAR},
+            subject_id     = #{subjectId,jdbcType=INTEGER},
+            required       = #{required,jdbcType=INTEGER},
+            create_date    = #{createDate,jdbcType=TIMESTAMP},
+            update_date    = #{updateDate,jdbcType=TIMESTAMP}
+        where topic_id = #{topicId,jdbcType=INTEGER}
+    </update>
+    <delete id="deleteByTopicIdList">
+        delete from topic
+        where topic_id in
+        <foreach item="item" collection="topicList" separator="," open="(" close=")" index="">
+            #{item, jdbcType=NUMERIC}
+        </foreach>
+    </delete>
+
+    <select id="selectTopicByTpParam" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from exam.topic t
+        where
+        <if test="creatorId != null">
+            creator_id = #{creatorId,jdbcType=INTEGER},
+        </if>
+        <if test="question != null">
+            question = #{question,jdbcType=VARCHAR},
+        </if>
+        <if test="choice != null">
+            choice = #{choice,jdbcType=VARCHAR},
+        </if>
+        <if test="photo != null">
+            photo = #{photo,jdbcType=VARCHAR},
+        </if>
+        <if test="topicType != null">
+            topic_type = #{topicType,jdbcType=INTEGER},
+        </if>
+        <if test="correctAnswer != null">
+            correct_answer = #{correctAnswer,jdbcType=VARCHAR},
+        </if>
+        <if test="score != null">
+            score = #{score,jdbcType=FLOAT},
+        </if>
+        <if test="difficulty != null">
+            difficulty = #{difficulty,jdbcType=VARCHAR},
+        </if>
+        <if test="analysis != null">
+            analysis = #{analysis,jdbcType=VARCHAR},
+        </if>
+        <if test="subjectId != null">
+            subject_id = #{subjectId,jdbcType=INTEGER},
+        </if>
+        <if test="required != null">
+            required = #{required,jdbcType=INTEGER},
+        </if>
+        <if test="createDate != null">
+            create_date = #{createDate,jdbcType=TIMESTAMP},
+        </if>
+        <if test="updateDate != null">
+            update_date = #{updateDate,jdbcType=TIMESTAMP},
+        </if>
+    </select>
+
+    <select id="queryTitleByDifficulty" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from topic t
+        <if test="difficulty != null">
+            difficulty IN #{difficulty,jdbcType=VARCHAR},
+        </if>
+        <if test="subjectId != null">
+            subject_id = #{subjectId,jdbcType=INTEGER},
+        </if>
+    </select>
+</mapper>

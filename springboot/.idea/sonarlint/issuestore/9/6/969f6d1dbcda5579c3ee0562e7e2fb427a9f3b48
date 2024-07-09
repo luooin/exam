@@ -1,0 +1,41 @@
+
+	java:S112”"FDefine and throw a dedicated exception instead of using a generic one.(ΔΚΠ88Ο΅¬τι1J$6860b988-d2e2-4b24-8fd9-060ff2dabce5
+‰	java:S112΅"FDefine and throw a dedicated exception instead of using a generic one.(½”8Π΅¬τι1J$9307b700-0602-46d4-a231-f13f589f881a
+΅
+java:S1488–"]Immediately return this expression instead of assigning it to the temporary variable "count".(ύÿξΆ8Ò΅¬τι1J$24804123-cf6f-4fe0-b854-ae575188fbc0
+§
+java:S1488·"^Immediately return this expression instead of assigning it to the temporary variable "remove".(²ΠΙΰύÿÿÿÿ8Ò΅¬τι1J$087f2ac5-365e-4314-befa-ae147f4a647e
+
+java:S2259:"GA "NullPointerException" could be thrown; "getExpire" is nullable here.(ΏβΦμώÿÿÿÿ8‚Ά¬τι1J$3b1c6869-326f-4ee6-bd05-14c09b1e3850
+
+java:S2259β"AA "NullPointerException" could be thrown; "add" is nullable here.(Δ™‹ϋÿÿÿÿ8Ά¬τι1J$7737ed12-2fed-448d-99e0-4548f53065cf
+‡
+java:S2259χ"CA "NullPointerException" could be thrown; "count" is nullable here.(Ώ΅‚ό8‚Ά¬τι1J$017eda42-d336-435f-8a2a-8c6c6e490f21
+
+java:S2259Ò"FA "NullPointerException" could be thrown; "isMember" is nullable here.(θ©τ8‚Ά¬τι1J$1726ed46-e70d-46cb-9135-f99ce60cd4d3
+†
+java:S2259E"DA "NullPointerException" could be thrown; "hasKey" is nullable here.(ςθ8‚Ά¬τι1J$e546a4d2-7b8e-4d23-96b2-111941925053
+‹
+java:S2259Έ"BA "NullPointerException" could be thrown; "size" is nullable here.(Μιƒύÿÿÿÿ8‚Ά¬τι1J$43dd5892-d6f5-4fc4-8173-bc055c4db749
+‹
+java:S2259£"GA "NullPointerException" could be thrown; "increment" is nullable here.(—Θ…ξ8‚Ά¬τι1J$78743ad9-8457-4c03-b195-6ed03029dcd7
+‹
+java:S2259†"BA "NullPointerException" could be thrown; "size" is nullable here.(κοοήϊÿÿÿÿ8ƒΆ¬τι1J$46963048-bb48-4e73-b89c-fe796a02a668
+
+java:S2259Έ"DA "NullPointerException" could be thrown; "remove" is nullable here.(φ€°8ƒΆ¬τι1J$be644e82-195f-4f87-a39a-ecf60d4edc4d
+‡
+java:S2259—"CA "NullPointerException" could be thrown; "count" is nullable here.(Ώ΅‚ό8‚Ά¬τι1J$138033e5-0353-4260-89a5-998af30cc5f6
+‹
+java:S2259–"GA "NullPointerException" could be thrown; "increment" is nullable here.(”ΘΚε8Ά¬τι1J$e19719c5-002e-482b-8a84-f22e25acb4e3
+…
+java:S6813"BRemove this field injection and use constructor injection instead.(κζΔή8…Ά¬τι1J$28df2429-b7d2-4fe4-8d8a-af5590389660
+—
+java:S1845ώ"NRename method "hset" to prevent any misunderstanding/clash with method "hSet".(υ£β΄όÿÿÿÿ8†Ά¬τι1J$61f6d0fc-9031-4e4d-bb52-61b8927d5ef4
+u
+java:S1905W"-Remove this unnecessary cast to "Collection".(•έ¦όÿÿÿÿ8Ά¬τι1J$0c5542b7-1eea-4d54-b22e-829951fd41c3
+o
+java:S1168Ε"+Return an empty collection instead of null.(¥Ήο8¦Ά¬τι1J$d32aea12-3e3b-44aa-a8a5-4c8e6f6fe856
+o
+java:S1168¬"+Return an empty collection instead of null.(¥Ήο8―Ά¬τι1J$bcd6cd41-baee-458a-8521-dd94b189bdce
+‰
+java:S1128"ARemove this unused import 'org.apache.commons.lang3.StringUtils'.(ΨΌΊϊÿÿÿÿ8ΊΆ¬τι1J$4fcfd9fc-8bc9-463d-997c-e4e00821677f

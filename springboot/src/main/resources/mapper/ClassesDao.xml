@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.ClassesDao">
+  <resultMap id="BaseResultMap" type="cn.com.exam.entity.Classes">
+    <id column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="people_num" jdbcType="INTEGER" property="peopleNum" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+  </resultMap>
+  <resultMap id="ClassesUserDTO" type="cn.com.exam.DTO.ClassesUserDTO">
+    <id column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="people_num" jdbcType="INTEGER" property="peopleNum" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+    <result column="enter_date" jdbcType="TIMESTAMP" property="enterDate" />
+  </resultMap>
+  <resultMap id="ClassesExamDTO" type="cn.com.exam.DTO.ClassesExamDTO">
+    <id column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="classes_name" jdbcType="VARCHAR" property="classesName" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="people_num" jdbcType="INTEGER" property="peopleNum" />
+    <result column="creator_name" jdbcType="VARCHAR" property="creatorName" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="release_time" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="start_date" jdbcType="TIMESTAMP" property="startDate" />
+    <result column="deadline" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="publish_answer" jdbcType="INTEGER" property="publishAnswer" />
+    <result column="publish_score" jdbcType="INTEGER" property="publishScore" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    classes_id, classes_name, update_date, create_date, introduction, people_num,
+    creator_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    c.* , u.user_name as creator_name
+    from classes c
+    join user u on u.user_id = c.creator_id
+    where classes_id = #{classesId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserId" resultMap="ClassesUserDTO">
+    select
+    c.*,u_c.position , u_c.enter_date , u.user_name as creator_name
+    from  classes c
+    join user_classes u_c on u_c.classes_id = c.classes_id
+    join user u on u.user_id = c.creator_id
+    where  u_c.user_id=#{userId} and (c.classes_id like concat('%',#{keyword},'%') or c.classes_name like concat('%',#{keyword},'%'))
+    order by u_c.enter_date desc
+  </select>
+    <select id="selectByExamId" resultMap="ClassesExamDTO">
+      select
+      c.* , ec.*
+      from classes c
+      join exam_classes ec on ec.classes_id = c.classes_id
+      where ec.exam_id = #{examId,jdbcType=INTEGER}
+    </select>
+  <select id="selectByCreatorId" resultMap="ClassesUserDTO">
+    select
+    c.*, u.user_name as creator_name
+    from  classes c
+    join user u on u.user_id = c.creator_id
+    where  c.creator_id=#{userId} and (c.classes_id like concat('%',#{keyword},'%') or c.classes_name like concat('%',#{keyword},'%'))
+    order by c.create_date desc
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from classes
+    where classes_id = #{classesId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="classes_id" keyProperty="classesId" parameterType="cn.com.exam.entity.Classes" useGeneratedKeys="true">
+    insert into classes (classes_name, update_date, create_date, 
+      introduction, people_num,
+      creator_id)
+    values (#{classesName,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{introduction,jdbcType=VARCHAR}, #{peopleNum,jdbcType=INTEGER},
+      #{creatorId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyColumn="classes_id" keyProperty="classesId" parameterType="cn.com.exam.entity.Classes" useGeneratedKeys="true">
+    insert into classes
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="classesName != null">
+        classes_name,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="peopleNum != null">
+        people_num,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="classesName != null">
+        #{classesName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleNum != null">
+        #{peopleNum,jdbcType=INTEGER},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.exam.entity.Classes">
+    update classes
+    <set>
+      <if test="classesName != null">
+        classes_name = #{classesName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleNum != null">
+        people_num = #{peopleNum,jdbcType=INTEGER},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where classes_id = #{classesId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.Classes">
+    update classes
+    set classes_name = #{classesName,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      people_num = #{peopleNum,jdbcType=INTEGER},
+      creator_id = #{creatorId,jdbcType=INTEGER}
+    where classes_id = #{classesId,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByClassName" resultMap="ClassesExamDTO">
+      select c.*
+      from classes c
+      where c.classes_name = #{classesName,jdbcType=VARCHAR}
+  </select>
+</mapper>

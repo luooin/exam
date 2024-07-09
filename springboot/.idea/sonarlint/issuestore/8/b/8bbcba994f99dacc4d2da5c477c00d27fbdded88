@@ -1,0 +1,83 @@
+
+›
+java:S2293ï"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿJ$966d0ad3-5dfb-43e2-abd7-d6245228875b
+›
+java:S2293’"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ûìâ¿ıÿÿÿÿJ$d53abe04-d24e-4e52-879b-5a5222e9fcf8
+›
+java:S2293³"YReplace the type specification in this constructor call with the diamond operator ("<>").(»ò©ŸúÿÿÿÿJ$8b2b4169-9e00-4eb4-84e6-269c81efda72
+…
+java:S1192“"IUse already-defined constant 'Y_M' instead of duplicating its value here.(àô§jJ$2f72d380-1647-46a0-81fe-67a540f4b1b6
+
+java:S1192‚"QUse already-defined constant 'Y_M_D_H_M_S' instead of duplicating its value here.(¾øõåJ$fc2a8beb-3150-4f55-979f-8a5745734797
+ 
+java:S1192U"_Define a constant instead of duplicating this literal "è·å–æŸæ ¼å¼çš„æ—¶é—´å¼‚å¸¸" 4 times.(Íµè›ÿÿÿÿÿJ$d6243b22-4475-4d75-84b8-9cf10effc11a
+ˆ
+java:S1192á"KUse already-defined constant 'Y_M_D' instead of duplicating its value here.(›ñ •J$1b71ac5a-7ff5-45ef-ba71-ee3ab2356eb2
+•	java:S135—"YReduce the total number of break and continue statements in this loop to use at most one.(©‹ÔâJ$45c5364e-327b-48c1-b36d-ed8fb31d393e
+’	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É®áÀøÿÿÿÿJ$b73cea7c-51d3-4e8d-9676-c586337fd322
+’	java:S117Â"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èûÁºùÿÿÿÿJ$86c90f61-4bc6-41a8-8ad8-b76757821af5
+Y
+java:S1643"Use a StringBuilder instead.(‡®õõJ$f644e147-4324-4cf1-8197-823504043069
+Y
+java:S1643¢"Use a StringBuilder instead.(‡®õõJ$4691dfe7-b4c6-478c-aaaf-42ea5d18bd23
+^
+java:S1643¦"Use a StringBuilder instead.(µ²‘ŸÿÿÿÿÿJ$61b89960-4f98-4ca7-95a4-30dfa1de5035
+Y
+java:S1643ª"Use a StringBuilder instead.(£üÛªJ$c1ef6ae2-addc-49a9-b282-6ce5cfd82d48
+^
+java:S1643°"Use a StringBuilder instead.(µ²‘ŸÿÿÿÿÿJ$d510be23-8a3d-4b08-96eb-8ba797cc0f52
+Y
+java:S1643´"Use a StringBuilder instead.(é¿™J$4d82eaf0-172a-40d5-b41f-2ff60e85188b
+Y
+java:S1643º"Use a StringBuilder instead.(é¿™J$91f46da9-8be9-48ae-8dbf-14936e50b494
+Y
+java:S1643¾"Use a StringBuilder instead.(‰ƒöãJ$218f5813-dced-420b-a934-a8e75fea86f2
+^
+java:S1643Á"Use a StringBuilder instead.(œ—‘ıÿÿÿÿJ$aa9c6e58-3b83-4145-b1ce-5d3248c7cbdb
+^
+java:S1643Ä"Use a StringBuilder instead.(»¤Ò¾ùÿÿÿÿJ$0310c3ad-dba8-4d24-81c4-a63b91fb2bb0
+^
+java:S1643œ"Use a StringBuilder instead.(ÅàÎşÿÿÿÿJ$a7b5ece8-6779-46d9-9fb0-f97c7abbc590
+Y
+java:S1643"Use a StringBuilder instead.(Ò„÷èJ$07964a40-b175-4409-9b02-e0b929df6612
+X
+java:S1643 "Use a StringBuilder instead.(†¼ŞJ$454099e3-8fb9-4515-8fa5-0a51bf785cdf
+^
+java:S1643¢"Use a StringBuilder instead.(•—³šûÿÿÿÿJ$2dad68df-90b9-4e21-82b0-2a725fb68b8c
+
+java:S1488á"aImmediately return this expression instead of assigning it to the temporary variable "yesterday".(›ñ •J$c9517ffd-a4d8-46d3-a00d-4b9b8f3331cd
+
+java:S1488Ş"aImmediately return this expression instead of assigning it to the temporary variable "lastMonth".(­Äß8J$01b50714-b44f-4842-b33b-109b4e786ae1
+¢
+java:S1488ó"`Immediately return this expression instead of assigning it to the temporary variable "preMonth".(´È—èÿÿÿÿÿJ$709acce2-5602-4d4c-8049-7e4d6f310302
+–
+java:S1488"YImmediately return this expression instead of assigning it to the temporary variable "t".(èïßJ$88f5108a-9857-48bd-b3df-91131c850ac2
+–
+java:S1488£"YImmediately return this expression instead of assigning it to the temporary variable "t".(¢’øŒJ$a8373865-3d48-4e2d-998b-3ca27132dc39
+“
+java:S1104,"WMake currentDate a static final constant or non-public and provide accessors if needed.(Îä°’J$526659fe-4b23-4c90-957c-a6d1ef641f9d
+m
+java:S1444,"1Make this "public static currentDate" field final(Îä°’J$e820ab3c-699a-4a76-95c8-742acb248c79
+~
+java:S2259€"AA "NullPointerException" could be thrown; "dtf" is nullable here.(½æÿÜJ$e88de5f8-ab96-4420-bdde-021a01222e57
+€
+java:S2259ç"CA "NullPointerException" could be thrown; "date1" is nullable here.(áÄÌÒJ$3244a104-7619-4398-a744-48a5f0bfc57a
+v
+java:S1118":Add a private constructor to hide the implicit public one.(Ÿÿ¸ÜJ$1a44b485-fb6b-48be-abcd-0e2301dd63ad
+i	java:S108~")Either remove or fill this block of code.(É¤Õ§üÿÿÿÿJ$2f6ea1e1-5d50-4a17-8334-60db1e58c53b
+
+java:S3776’"RRefactor this method to reduce its Cognitive Complexity from 41 to the 15 allowed.(ÂÀÍ’J$655d3d81-7d91-456b-a09f-60e631307718
+X
+java:S3626¿"Remove this redundant jump.(ÉŠ©ƒJ$ff8a108a-ba7c-49d3-97d0-c70b3b35385b
+X
+java:S3626Â"Remove this redundant jump.(ÉŠ©ƒJ$399897cb-edb2-44bb-a758-d1fa86e61bf0
+X
+java:S3626Å"Remove this redundant jump.(ÉŠ©ƒJ$85fdd365-87e6-42fc-aa41-5064a6fd56eb
+ƒ
+java:S1126·"AReplace this if-then-else statement by a single return statement.(ŠµúÙùÿÿÿÿJ$044fd7a8-ba5a-4539-92c0-f8a98cb7f1fa
+ƒ
+java:S1126½"AReplace this if-then-else statement by a single return statement.(–™âÀùÿÿÿÿJ$6c18765a-5c33-4364-8dce-4204821bfffd
+t
+java:S1135Ú"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿJ$aeaa1166-9388-46eb-bf4c-efe227dfe725
+t
+java:S1135ï"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿJ$0fdbba5a-157e-47a7-871e-be0618cbafd9

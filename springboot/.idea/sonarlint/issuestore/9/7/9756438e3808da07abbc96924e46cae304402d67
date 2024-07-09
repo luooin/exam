@@ -1,0 +1,40 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢òËô
+E
+java:S1068"*Remove this unused "examId" private field.(£îÁÂûÿÿÿÿ
+G
+java:S1068",Remove this unused "examName" private field.(şõÂòüÿÿÿÿ
+B
+java:S1068"-Remove this unused "creatorId" private field.(¹ª¦@
+J
+java:S1068 "/Remove this unused "creatorName" private field.(óú¤²úÿÿÿÿ
+C
+java:S1068%"(Remove this unused "time" private field.(æš÷†ûÿÿÿÿ
+H
+java:S10686"-Remove this unused "subjectId" private field.(×«Ãûÿÿÿÿ
+E
+java:S1068;"/Remove this unused "subjectName" private field.(ó·ü§
+G
+java:S1068@",Remove this unused "topicNum" private field.(ìşÄ¡úÿÿÿÿ
+D
+java:S1068E".Remove this unused "totalScore" private field.(ñšÌı
+B
+java:S1068J",Remove this unused "passMark" private field.(€ëƒ±
+D
+java:S1068O".Remove this unused "permitCopy" private field.(ĞŠÀ
+D
+java:S1068S".Remove this unused "switchPage" private field.(»Ú‰¢
+K
+java:S1068X"0Remove this unused "disruptOrder" private field.(±³‰øÿÿÿÿ
+D
+java:S1068]".Remove this unused "repeatTest" private field.(•ÈªÖ
+G
+java:S1068b",Remove this unused "autoMack" private field.(ºí µÿÿÿÿÿ
+N
+java:S1068g"3Remove this unused "topicTchDTOList" private field.(Ë÷áˆúÿÿÿÿ
+J
+java:S1068l"/Remove this unused "examClasses" private field.(ï’ò…øÿÿÿÿ
+H
+java:S1068n"-Remove this unused "userGrade" private field.(…—äøÿÿÿÿ
+L
+java:S1068p"1Remove this unused "userTopicList" private field.(ƒ±Óıÿÿÿÿ

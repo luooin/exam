@@ -1,0 +1,13 @@
+
+o
+java:S2293$"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ì”¯ã
+t
+java:S2293&"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÛÝ§Žúÿÿÿÿ
+C
+java:S54111"(Use a primitive boolean expression here.(ºðÚüøÿÿÿÿ
+R
+java:S4973+"<Strings and Boxed types should be compared using "equals()".(µ©Ýœ
+E	java:S106G"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ
+V	java:S125O"<This block of commented-out lines of code should be removed.(Ü¢ÂÇüÿÿÿÿ
+@	java:S106e"+Replace this use of System.out by a logger.(ÀÄõ¢
+E	java:S106x"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ

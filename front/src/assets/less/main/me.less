@@ -1,0 +1,81 @@
+.me{
+    .tab-item{
+        display: flex;
+        padding: 24px;
+    }
+    .uploadPhoto{
+        width: 50%;
+        background: #f7f7f7;
+        display: flex;
+        justify-content: center;
+        position: relative;
+    }
+    .uploadPhoto .title{
+        position: absolute;
+        top: 64px;
+        left: 84px;
+    }
+    .avatar-uploader{
+        margin-top: 120px;
+        height: 214px;
+    }
+    .el-upload{
+        width: 100%;
+    }
+    .el-upload > img{
+        margin: 0 auto;
+        width: unset;
+    }
+    
+
+    
+    .userInfo{
+        background: #f7f7f7;
+        width: 50%;
+        padding: 20px;
+        
+        .item{
+            margin: 30px 0;
+            display: flex;
+
+            span{
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+            }
+        }
+        .con{
+            margin-left: 16px;
+            margin-top: 4px;
+        }
+        .sex,.work{
+            font-size: 15px;
+            margin-top: 0px;
+        }
+    }
+
+    
+}
+.avatar-uploader .el-upload {
+	border: 1px dashed #d9d9d9;
+	border-radius: 6px;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+}
+.avatar-uploader .el-upload:hover {
+	border-color: #409EFF;
+}
+.avatar-uploader-icon {
+	font-size: 28px;
+	color: #8c939d;
+	width: 178px;
+	height: 178px;
+	line-height: 178px;
+	text-align: center;
+}
+.avatar {
+	width: 178px;
+	height: 178px;
+	display: block;
+}

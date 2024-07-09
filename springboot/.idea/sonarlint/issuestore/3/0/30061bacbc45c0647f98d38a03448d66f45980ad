@@ -1,0 +1,37 @@
+
+L
+java:S3740/"/Provide the parametrized type for this generic.(á¤¬Ï8¦ÒåÏû1
+L
+java:S3740G"/Provide the parametrized type for this generic.(ÎØ„¯8¦ÒåÏû1
+L
+java:S3740c"/Provide the parametrized type for this generic.(ÿãä’8§ÒåÏû1
+Q
+java:S3740h"/Provide the parametrized type for this generic.(´áÙ’ıÿÿÿÿ8§ÒåÏû1
+Q
+java:S3740i"/Provide the parametrized type for this generic.(üÒóÿÿÿÿÿ8§ÒåÏû1
+Q
+java:S3740i"/Provide the parametrized type for this generic.(üÒóÿÿÿÿÿ8§ÒåÏû1
+L
+java:S3740p"/Provide the parametrized type for this generic.(Á¦¼„8§ÒåÏû1
+Q
+java:S3740x"/Provide the parametrized type for this generic.(ñõÒşÿÿÿÿ8§ÒåÏû1
+M
+java:S3740‡"/Provide the parametrized type for this generic.(Èß²¸8§ÒåÏû1
+R
+java:S3740¡"/Provide the parametrized type for this generic.(ÿŞ‚øÿÿÿÿ8§ÒåÏû1
+R
+java:S3740§"/Provide the parametrized type for this generic.(•Ğåøÿÿÿÿ8¨ÒåÏû1
+c
+java:S11920"FDefine a constant instead of duplicating this literal "token" 4 times.(È¾Æ´8©ÒåÏû1
+m	java:S1172"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹Øº¯8«ÒåÏû1
+m	java:S117c"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿãä’8«ÒåÏû1
+m	java:S117f"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ºŠßÔ8«ÒåÏû1
+m	java:S117}"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹Øº¯8«ÒåÏû1
+R
+java:S2209H"5Change this instance-reference to a static reference.(Âš‚œ8ÓåÏû1
+j	java:S100c"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿãä’8šÓåÏû1
+X
+java:S2209Š"5Change this instance-reference to a static reference.(‘Ñ›Ëÿÿÿÿÿ8«ÓåÏû1
+^	java:S125’"<This block of commented-out lines of code should be removed.(Ïè¸­ûÿÿÿÿ8±ÓåÏû1
+X
+java:S1128";Remove this unused import 'cn.hutool.core.util.ObjectUtil'.(£šúî8ºÓåÏû1

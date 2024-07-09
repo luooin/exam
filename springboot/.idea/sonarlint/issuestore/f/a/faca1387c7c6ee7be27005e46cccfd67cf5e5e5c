@@ -1,0 +1,26 @@
+
+{
+java:S2293_"YReplace the type specification in this constructor call with the diamond operator ("<>").(À²ìÝúÿÿÿÿ8¯é¿Ïû1
+|
+java:S2293ø"YReplace the type specification in this constructor call with the diamond operator ("<>").(¹’Ùäÿÿÿÿÿ8°é¿Ïû1
+^
+java:S4973W"<Strings and Boxed types should be compared using "equals()".(¯»úÿýÿÿÿÿ8·é¿Ïû1
+Y
+java:S4973l"<Strings and Boxed types should be compared using "equals()".(¿ øë8·é¿Ïû1
+I
+java:S1125v"'Remove the unnecessary boolean literal.(ÚÛª›ûÿÿÿÿ8àé¿Ïû1
+\
+java:S1155–">Use isEmpty() to check whether the collection is empty or not.(Ø×Áé8ëé¿Ïû1
+\
+java:S1155¦">Use isEmpty() to check whether the collection is empty or not.(Ž™äØ8ïé¿Ïû1
+M	java:S106è"+Replace this use of System.out by a logger.(¨¶ÑÍþÿÿÿÿ8‚ê¿Ïû1
+]
+java:S1854Ê"?Remove this useless assignment to local variable "zjUserInfos".(Ö¹ó½8Šê¿Ïû1
+H	java:S106š"+Replace this use of System.out by a logger.(Êª²®8’ê¿Ïû1
+^	java:S125œ"<This block of commented-out lines of code should be removed.(Ù¯à¼üÿÿÿÿ8”ê¿Ïû1
+X	java:S125­"<This block of commented-out lines of code should be removed.(£Ë¹,8—ê¿Ïû1
+N
+java:S1481Ê"0Remove this unused "zjUserInfos" local variable.(Ö¹ó½8 ê¿Ïû1
+J
+java:S1602Î",Remove useless curly braces around statement(‰ñ”×8¤ê¿Ïû1
+^	java:S125Ó"<This block of commented-out lines of code should be removed.(³Âƒ½ûÿÿÿÿ8¥ê¿Ïû1

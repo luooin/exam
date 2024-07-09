@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.exam.dao.UserTopicDao">
+  <resultMap id="BaseResultMap" type="cn.com.exam.entity.UserTopic">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="classes_id" jdbcType="INTEGER" property="classesId" />
+    <result column="exam_id" jdbcType="INTEGER" property="examId" />
+    <result column="topic_id" jdbcType="INTEGER" property="topicId" />
+    <result column="user_answer" jdbcType="VARCHAR" property="userAnswer" />
+    <result column="user_score" jdbcType="DOUBLE" property="userScore" />
+    <result column="topic_status" jdbcType="VARCHAR" property="topicStatus" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, classes_id, exam_id, topic_id, user_answer, user_score, topic_status
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_topic
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_topic
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.UserTopic" useGeneratedKeys="true">
+    insert into user_topic (user_id, classes_id, exam_id, 
+      topic_id, user_answer, user_score, 
+      topic_status)
+    values (#{userId,jdbcType=INTEGER}, #{classesId,jdbcType=INTEGER}, #{examId,jdbcType=INTEGER}, 
+      #{topicId,jdbcType=INTEGER}, #{userAnswer,jdbcType=VARCHAR}, #{userScore,jdbcType=DOUBLE}, 
+      #{topicStatus,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="cn.com.exam.entity.UserTopic" useGeneratedKeys="true">
+    insert into user_topic
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="classesId != null">
+        classes_id,
+      </if>
+      <if test="examId != null">
+        exam_id,
+      </if>
+      <if test="topicId != null">
+        topic_id,
+      </if>
+      <if test="userAnswer != null">
+        user_answer,
+      </if>
+      <if test="userScore != null">
+        user_score,
+      </if>
+      <if test="topicStatus != null">
+        topic_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="classesId != null">
+        #{classesId,jdbcType=INTEGER},
+      </if>
+      <if test="examId != null">
+        #{examId,jdbcType=INTEGER},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=INTEGER},
+      </if>
+      <if test="userAnswer != null">
+        #{userAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="userScore != null">
+        #{userScore,jdbcType=DOUBLE},
+      </if>
+      <if test="topicStatus != null">
+        #{topicStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByForeignKeySelective" parameterType="cn.com.exam.entity.UserTopic">
+    update user_topic
+    <set>
+      <if test="userAnswer != null">
+        user_answer = #{userAnswer,jdbcType=VARCHAR},
+      </if>
+      <if test="userScore != null">
+        user_score = #{userScore,jdbcType=DOUBLE},
+      </if>
+      <if test="topicStatus != null">
+        topic_status = #{topicStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER} and classes_id = #{classesId,jdbcType=INTEGER} and exam_id = #{examId,jdbcType=INTEGER} and topic_id = #{topicId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.exam.entity.UserTopic">
+    update user_topic
+    set user_id = #{userId,jdbcType=INTEGER},
+      classes_id = #{classesId,jdbcType=INTEGER},
+      exam_id = #{examId,jdbcType=INTEGER},
+      topic_id = #{topicId,jdbcType=INTEGER},
+      user_answer = #{userAnswer,jdbcType=VARCHAR},
+      user_score = #{userScore,jdbcType=DOUBLE},
+      topic_status = #{topicStatus,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
